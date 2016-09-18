@@ -11,8 +11,8 @@ void handleToggle();
 void handleNotFound();
 
 //WIFI SETTINGS:
-const char* ssid = "wifi";
-const char* key  = "wifipassword";
+const char* ssid = "test";
+const char* key  = "wifitestcode";
 
 //Batt:
 static unsigned battPin=A0;
@@ -25,17 +25,17 @@ unsigned int filterBeta=10;
 ESP8266WebServer server(80);
 
 //hardware stuff:
-const unsigned int relayPin = D1;
-bool lightState=true; // True=on , false=off
+const unsigned int GPIOpin = D0;
+bool GPIOstate=true; // True=on , false=off
 
 
 void setup() {
   Serial.begin(115200);
-  WiFi.hostname("lighthouse");
+  WiFi.hostname("DDIOT");
   WiFi.mode(WIFI_STA); //neccesary?
   WiFi.begin(ssid,key);
-  pinMode(relayPin,OUTPUT);
-  digitalWrite(relayPin,lightState);
+  pinMode(GPIOpin,OUTPUT);
+  digitalWrite(GPIOpin,GPIOstate);
 
   for(int a=0; a<=filterBeta; a++) ADCfiltered=((ADCfiltered*filterBeta)+analogRead(battPin))/(filterBeta+1); //low pass filtering of ADC0
 
@@ -56,8 +56,8 @@ void setup() {
   Serial.print("  IPv4: ");
   Serial.println(WiFi.localIP());
 
-  if (MDNS.begin("lighthouse")) {
-    Serial.println("MDNS responder started, see you at http://lighthouse.local");
+  if (MDNS.begin("ddiot")) {
+    Serial.println("MDNS responder started, see you at http://ddiot.local");
   }
 
   server.on("/", handleRoot);
@@ -84,7 +84,7 @@ if (millis()> lastConversion+conversionDelay){
 	// Serial.println(vBatt);
 }
 
-if(vBatt<11) digitalWrite(relayPin,LOW);
+//if(vBatt<11) digitalWrite(GPIOpin,LOW); //safety
 
 server.handleClient();
 
@@ -105,21 +105,21 @@ void handleRoot() {
   server.sendContent("<meta name='apple-mobile-web-app-capable' content='yes' />\r\n");
   server.sendContent("<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />\r\n");
   server.sendContent("<link rel='stylesheet' type='text/css' href='https://moore.dk/doorcss.css' />\r\n"); //External CSS
-  server.sendContent("<TITLE>Sommerhack 2016 Lighthouse.</TITLE>\r\n");
+  server.sendContent("<TITLE>DDlab IOT demo.</TITLE>\r\n");
   server.sendContent("</HEAD>\r\n");
   server.sendContent("<BODY>\r\n");
-  if(lightState) server.sendContent("<H1>Lighthouse is on.</H1>\r\n");
-  else server.sendContent("<H1>Lighthouse is off.</H1>\r\n");
+  if(GPIOstate) server.sendContent("<H1>GPIO is HIGH.</H1>\r\n");
+  else server.sendContent("<H1>GPIO is LOW.</H1>\r\n");
   server.sendContent("<hr />\r\n");
   server.sendContent("<H2>vBatt: ");
   server.sendContent(String(vBatt));
   server.sendContent("</H2>\r\n");
   //server.sendContent("<br />\r\n");
   server.sendContent("<br />\r\n");
-  if(lightState) server.sendContent("<a class=\"red\" href=\"/toggle\"\">Shut that lighthouse down!</a>\r\n");
-  else server.sendContent("<a href=\"/toggle\"\">Light that lighthouse up!</a>\r\n");
+  if(GPIOstate) server.sendContent("<a class=\"red\" href=\"/toggle\"\">Shut that GPIO down!</a>\r\n");
+  else server.sendContent("<a href=\"/toggle\"\">Light that GPIO up!</a>\r\n");
   server.sendContent("<br />\r\n");
-  if(!lightState) server.sendContent("<H3>The lighthouse takes about 7 seconds to heat up</H3>");
+  if(!GPIOstate) server.sendContent("<H3>Here's some text you only see when the GPIO is LOW...</H3>");
   server.sendContent("</BODY>\r\n");
   server.sendContent("</HTML>\r\n");
 
@@ -128,10 +128,10 @@ void handleRoot() {
 
 void handleToggle(){
 
-	lightState=!lightState;
-	digitalWrite(relayPin,lightState);
-	if(lightState)	Serial.println("light on..");
-	else Serial.println("light off..");
+	GPIOstate=!GPIOstate;
+	digitalWrite(GPIOpin,GPIOstate);
+	if(GPIOstate)	Serial.println("GPIO HIGH..");
+	else Serial.println("GPIO LOW..");
 	//reply to client with redirect to root, to update status of light in browser
 	server.sendContent("HTTP/1.1 303 See Other\r\n");
   	server.sendContent("Location: /\r\n");
