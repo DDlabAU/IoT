@@ -27,7 +27,7 @@ int current = 0;
 int last = -1;
 
 // set up the 'analog' feed
-AdafruitIO_Feed *analog = io.feed("analog");
+AdafruitIO_Feed *analog = io.feed("publishAnalog");
 
 void setup() {
 
