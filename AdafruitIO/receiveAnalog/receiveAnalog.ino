@@ -1,4 +1,4 @@
-// Adafruit IO Digital Output Example
+// Adafruit IO Analog Out Example
 //
 // Adafruit invests time and resources providing this open source code.
 // Please support Adafruit and open source hardware by purchasing
@@ -20,15 +20,13 @@
 /************************ Example Starts Here *******************************/
 
 // digital pin 5
+// this should correspond to a pin with PWM capability
 #define LED_PIN 5
 
-// set up the 'digital' feed
-AdafruitIO_Feed *digital = io.feed("recieveDigital");
+// set up the 'analog' feed
+AdafruitIO_Feed *analog = io.feed("receiveAnalog");
 
 void setup() {
-
-  // set led pin as a digital output
-  pinMode(LED_PIN, OUTPUT);
 
   // start the serial connection
   Serial.begin(115200);
@@ -40,11 +38,11 @@ void setup() {
   Serial.print("Connecting to Adafruit IO");
   io.connect();
 
-  // set up a message handler for the 'digital' feed.
+  // set up a message handler for the 'analog' feed.
   // the handleMessage function (defined below)
   // will be called whenever a message is
   // received from adafruit io.
-  digital->onMessage(handleMessage);
+  analog->onMessage(handleMessage);
 
   // wait for a connection
   while(io.status() < AIO_CONNECTED) {
@@ -68,19 +66,15 @@ void loop() {
 
 }
 
-// this function is called whenever an 'digital' feed message
+// this function is called whenever an 'analog' message
 // is received from Adafruit IO. it was attached to
-// the 'digital' feed in the setup() function above.
+// the analog feed in the setup() function above.
 void handleMessage(AdafruitIO_Data *data) {
 
+  int reading = data->toInt();
+
   Serial.print("received <- ");
-
-  if(data->toPinLevel() == HIGH)
-    Serial.println("HIGH");
-  else
-    Serial.println("LOW");
-
-  // write the current state to the led
-  digitalWrite(LED_PIN, data->toPinLevel());
+  Serial.println(reading);
+  analogWrite(LED_PIN, reading);
 
 }
