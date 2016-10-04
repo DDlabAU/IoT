@@ -23,7 +23,7 @@
 #define LED_PIN 5
 
 // set up the 'digital' feed
-AdafruitIO_Feed *digital = io.feed("recieveDigital");
+AdafruitIO_Feed *digital = io.feed("subscribeLED");
 
 void setup() {
 
@@ -73,14 +73,9 @@ void loop() {
 // the 'digital' feed in the setup() function above.
 void handleMessage(AdafruitIO_Data *data) {
 
-  Serial.print("received <- ");
+  Serial.print("Triggered");
 
-  if(data->toPinLevel() == HIGH)
-    Serial.println("HIGH");
-  else
-    Serial.println("LOW");
-
-  // write the current state to the led
-  digitalWrite(LED_PIN, data->toPinLevel());
-
+  digitalWrite(LED_PIN, HIGH);
+  delay(10000);
+  digitalWrite(LED_PIN, LOW);
 }

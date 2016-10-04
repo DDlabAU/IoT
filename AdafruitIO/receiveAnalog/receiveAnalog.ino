@@ -24,7 +24,7 @@
 #define LED_PIN 5
 
 // set up the 'analog' feed
-AdafruitIO_Feed *analog = io.feed("recieveAnalog");
+AdafruitIO_Feed *analog = io.feed("receiveAnalog");
 
 void setup() {
 
