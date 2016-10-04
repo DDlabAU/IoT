@@ -6,10 +6,13 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 
-const byte        DNS_PORT = 53;          // Capture DNS requests on port 53
-IPAddress         apIP(10, 10, 10, 1);    // Private network for server
-DNSServer         dnsServer;              // Create the DNS object
-
+//to IP addresse objekter:
+IPAddress         apIP(10, 10, 13, 37);   //Acess pointets IP addresse
+IPAddress 		  NMask(255, 255, 255, 0);  //netmask (subnet) ... Man behøver ikke vide had det er...
+	
+// DNS server
+const byte DNS_PORT = 53;
+DNSServer dnsServer;
 
 //Function declarations:
 void handleRoot();
@@ -18,7 +21,7 @@ void handleNotFound();
 
 //WIFI SETTINGS:
 const char* ssid = "featherAP";
-const char* key  = "OMGWTFDDLABFTW";
+const char* key  = "OMGWTFDDLABFTW"; //hvis der skal være kode på...
 
 //Batt:
 static unsigned battPin=A0;
@@ -31,45 +34,49 @@ unsigned int filterBeta=10;
 ESP8266WebServer server(80);
 
 //hardware stuff:
-const unsigned int GPIOpin = D0;
-bool GPIOstate=true; // True=on , false=off
+const unsigned int GPIOpin = BUILTIN_LED; // D1 hvis man bruger wemos relay shield
+bool GPIOstate=true; // True=off , false=on, fordi logikken er inverteret på den indbyggede LED.
 
 
 void setup() {
   Serial.begin(115200);
   WiFi.hostname("DDIOT");
   
+  //opsætning af accesspoint:
   WiFi.mode(WIFI_AP);
-  WiFi.softAPConfig(apIP, apIP, IPAddress(255, 255, 255, 0));
-  WiFi.softAP(ssid, key); //start access point
+  WiFi.softAPConfig(apIP, apIP, NMask);
+
+  //start access point...
+  //Argumenterne er: (NetværksNavn , KODE , kanal)  
+  //hvis koden er en tom streng: "" startes netværket uden kode.
+  WiFi.softAP(ssid, ""/*key*/,10); 
 
   // if DNSServer is started with "*" for domain name, 
   // it will reply with the provided IP to all DNS requests
-  dnsServer.start(DNS_PORT, "*", apIP);
-
+  dnsServer.setErrorReplyCode(DNSReplyCode::NoError); //lad som om alt er fint...
+  dnsServer.start(DNS_PORT, "*", apIP); //giv apIP addressen som svar på alle (*) DNS forespørgsler...
+ 
   pinMode(GPIOpin,OUTPUT);
   digitalWrite(GPIOpin,GPIOstate);
 
-  for(int a=0; a<=filterBeta; a++) ADCfiltered=((ADCfiltered*filterBeta)+analogRead(battPin))/(filterBeta+1); //low pass filtering of ADC0
+  //Vi laver et lavpasfilter som en en slags gennemsnitsberegning af den analoge værdi på battPin
+  //denne for-løkke sørger for at lave en bunke målinger som gennemsnittet kan tage udgangspunkt i:
+  for(int a=0; a<=filterBeta*4; a++) ADCfiltered=((ADCfiltered*filterBeta)+analogRead(battPin))/(filterBeta+1); //low pass filtering of ADC0
 
-  vBatt=(float)14/(float)1023*(float)ADCfiltered; //ADC -> voltage
+  vBatt=(float)14/(float)1023*(float)ADCfiltered; //ADC (0-1023) -> voltage (0-14)
 
   delay(500);
 
   //Serial.print("ADCfiltered @:");
   //Serial.println(ADCfiltered);
 
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-
   Serial.println();
   Serial.print("WiFi up!");
   Serial.print("  IPv4: ");
-  Serial.println(WiFi.localIP());
+  Serial.println(WiFi.softAPIP());
 
   if (MDNS.begin("ddiot")) {
+  	MDNS.addService("http", "tcp", 80);
     Serial.println("MDNS responder started, see you at http://ddiot.local");
   }
 
@@ -101,6 +108,8 @@ if (millis()> lastConversion+conversionDelay){
 
 server.handleClient();
 
+dnsServer.processNextRequest();
+
 yield();
 
 }
@@ -121,15 +130,15 @@ void handleRoot() {
   server.sendContent("<TITLE>DDlab IOT demo.</TITLE>\r\n");
   server.sendContent("</HEAD>\r\n");
   server.sendContent("<BODY>\r\n");
-  if(GPIOstate) server.sendContent("<H1>GPIO is HIGH.</H1>\r\n");
-  else server.sendContent("<H1>GPIO is LOW.</H1>\r\n");
+  if(GPIOstate) server.sendContent("<H1>GPIO is HIGH. (BUILTIN_LED is on)</H1>\r\n");
+  else server.sendContent("<H1>GPIO is LOW. (BUILTIN_LED is off)</H1>\r\n");
   server.sendContent("<hr />\r\n");
   server.sendContent("<H2>vBatt: ");
   server.sendContent(String(vBatt));
   server.sendContent("</H2>\r\n");
   //server.sendContent("<br />\r\n");
   server.sendContent("<br />\r\n");
-  if(GPIOstate) server.sendContent("<a class=\"red\" href=\"/toggle\"\">Shut that GPIO down!</a>\r\n");
+  if(!GPIOstate) server.sendContent("<a class=\"red\" href=\"/toggle\"\">Shut that GPIO down!</a>\r\n");
   else server.sendContent("<a href=\"/toggle\"\">Light that GPIO up!</a>\r\n");
   server.sendContent("<br />\r\n");
   if(!GPIOstate) server.sendContent("<H3>Here's some text you only see when the GPIO is LOW...</H3>");
