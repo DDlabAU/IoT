@@ -130,8 +130,8 @@ void handleRoot() {
   server.sendContent("<TITLE>DDlab IOT demo.</TITLE>\r\n");
   server.sendContent("</HEAD>\r\n");
   server.sendContent("<BODY>\r\n");
-  if(GPIOstate) server.sendContent("<H1>GPIO is HIGH. (BUILTIN_LED is on)</H1>\r\n");
-  else server.sendContent("<H1>GPIO is LOW. (BUILTIN_LED is off)</H1>\r\n");
+  if(GPIOstate) server.sendContent("<H1>GPIO is HIGH. (BUILTIN_LED is off)</H1>\r\n");
+  else server.sendContent("<H1>GPIO is LOW. (BUILTIN_LED is on)</H1>\r\n");
   server.sendContent("<hr />\r\n");
   server.sendContent("<H2>vBatt: ");
   server.sendContent(String(vBatt));
