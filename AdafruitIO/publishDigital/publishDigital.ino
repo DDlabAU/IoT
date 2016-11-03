@@ -67,19 +67,20 @@ void loop() {
   // grab the current state of the button.
   // we have to flip the logic because we are
   // using INPUT_PULLUP.
-  if(digitalRead(BUTTON_PIN) == LOW)
+  if(digitalRead(BUTTON_PIN) == LOW){
     current = true;
-  else
+  } else{
     current = false;
+  }
 
-  // return if the value hasn't changed
-  if(current == last)
-    return;
+  // if the value has changed
+  if(current != last){
 
-  // save the current state to the 'digital' feed on adafruit io
-  Serial.print("sending button -> ");
-  Serial.println(current);
-  digital->save(current);
+    // save the current state to the 'digital' feed on adafruit io
+    Serial.print("sending button -> ");
+    Serial.println(current);
+    digital->save(current);
+  }
 
   // store last button state
   last = current;
