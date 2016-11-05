@@ -19,9 +19,9 @@
 
 /************************ Example Starts Here *******************************/
 
-// digital pin 5
+// set led pin
 // this should correspond to a pin with PWM capability
-#define LED_PIN 5
+int LED_PIN = 5;
 
 // set up the 'analog' feed
 AdafruitIO_Feed *analog = io.feed("receiveAnalog");
