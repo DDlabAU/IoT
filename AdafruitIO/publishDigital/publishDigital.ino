@@ -19,12 +19,12 @@
 
 /************************ Example Starts Here *******************************/
 
-// digital pin 5
-#define BUTTON_PIN 5
+// set button pin
+int BUTTON_PIN = 5;
 
 // button state
-bool current = false;
-bool last = false;
+boolean current = false;
+boolean last = false;
 
 // set up the 'digital' feed
 AdafruitIO_Feed *digital = io.feed("publishDigital");
