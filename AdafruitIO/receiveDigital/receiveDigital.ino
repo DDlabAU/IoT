@@ -20,7 +20,7 @@
 /************************ Example Starts Here *******************************/
 
 // digital pin 5
-#define LED_PIN 5
+int LED_PIN = 5;
 
 // set up the 'digital' feed
 AdafruitIO_Feed *digital = io.feed("receiveDigital");
@@ -75,12 +75,13 @@ void handleMessage(AdafruitIO_Data *data) {
 
   Serial.print("received <- ");
 
-  if(data->toPinLevel() == HIGH)
+  if(data->toPinLevel() == HIGH){
     Serial.println("HIGH");
-  else
+  }else {
     Serial.println("LOW");
-
+  }
   // write the current state to the led
-  digitalWrite(LED_PIN, data->toPinLevel());
+  boolean ledState = data->toPinLevel();
+  digitalWrite(LED_PIN, ledState);
 
 }
