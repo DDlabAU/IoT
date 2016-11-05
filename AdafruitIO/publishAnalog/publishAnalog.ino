@@ -19,8 +19,8 @@
 
 /************************ Example Starts Here *******************************/
 
-// analog pin 0
-#define PHOTOCELL_PIN A0
+// set photocell pin
+int PHOTOCELL_PIN = A0;
 
 // photocell state
 int current = 0;
@@ -64,18 +64,17 @@ void loop() {
   // grab the current state of the photocell
   current = analogRead(PHOTOCELL_PIN);
 
-  // return if the value hasn't changed
-  if(current == last)
-    return;
+  // if the value has changed
+  if(current != last){
 
-  // save the current state to the analog feed
-  Serial.print("sending -> ");
-  Serial.println(current);
-  analog->save(current);
+    // save the current state to the analog feed
+    Serial.print("sending -> ");
+    Serial.println(current);
+    analog->save(current);
 
-  // store last photocell state
-  last = current;
-
+    // store last photocell state
+    last = current;
+  }
   // wait one second (1000 milliseconds == 1 second)
   delay(1000);
 }
