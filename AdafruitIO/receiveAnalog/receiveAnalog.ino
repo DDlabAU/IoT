@@ -21,7 +21,7 @@
 
 // set led pin
 // this should correspond to a pin with PWM capability
-int LED_PIN = 5;
+int ledPin = 5;
 
 // set up the 'analog' feed
 AdafruitIO_Feed *analog = io.feed("receiveAnalog");
@@ -75,6 +75,6 @@ void handleMessage(AdafruitIO_Data *data) {
 
   Serial.print("received <- ");
   Serial.println(reading);
-  analogWrite(LED_PIN, reading);
+  analogWrite(ledPin, reading);
 
 }
