@@ -20,7 +20,7 @@
 /************************ Example Starts Here *******************************/
 
 // set button pin
-int BUTTON_PIN = 5;
+int buttonPin = 5;
 
 // button state
 boolean current = false;
@@ -32,7 +32,7 @@ AdafruitIO_Feed *digital = io.feed("publishDigital");
 void setup() {
 
   // set button pin as an input
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT_PULLUP);
 
   // start the serial connection
   Serial.begin(115200);
@@ -67,7 +67,7 @@ void loop() {
   // grab the current state of the button.
   // we have to flip the logic because we are
   // using INPUT_PULLUP.
-  if(digitalRead(BUTTON_PIN) == LOW){
+  if(digitalRead(buttonPin) == LOW){
     current = true;
   } else{
     current = false;
