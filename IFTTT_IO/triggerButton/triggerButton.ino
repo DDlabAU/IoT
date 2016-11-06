@@ -19,12 +19,12 @@
 
 /************************ Example Starts Here *******************************/
 
-// digital pin 5
-#define BUTTON_PIN 5
+// set button pin
+int buttonPin = 5;
 
 // button state
-bool current = false;
-bool last = false;
+boolean current = false;
+boolean last = false;
 
 // set up the 'digital' feed
 AdafruitIO_Feed *digital = io.feed("triggerButton");
@@ -32,7 +32,7 @@ AdafruitIO_Feed *digital = io.feed("triggerButton");
 void setup() {
 
   // set button pin as an input
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT_PULLUP);
 
   // start the serial connection
   Serial.begin(115200);
@@ -67,7 +67,7 @@ void loop() {
   // grab the current state of the button.
   // we have to flip the logic because we are
   // using INPUT_PULLUP.
-  if (digitalRead(BUTTON_PIN) == LOW) {
+  if (digitalRead(buttonPin) == LOW) {
     current = true;
   } else {
     current = false;
