@@ -19,8 +19,8 @@
 
 /************************ Example Starts Here *******************************/
 
-// digital pin 5
-int LED_PIN = 5;
+// set led pin
+int ledPin = 5;
 
 // set up the 'digital' feed
 AdafruitIO_Feed *digital = io.feed("receiveDigital");
@@ -28,7 +28,7 @@ AdafruitIO_Feed *digital = io.feed("receiveDigital");
 void setup() {
 
   // set led pin as a digital output
-  pinMode(LED_PIN, OUTPUT);
+  pinMode(ledPin, OUTPUT);
 
   // start the serial connection
   Serial.begin(115200);
@@ -82,6 +82,6 @@ void handleMessage(AdafruitIO_Data *data) {
   }
   // write the current state to the led
   boolean ledState = data->toPinLevel();
-  digitalWrite(LED_PIN, ledState);
+  digitalWrite(ledPin, ledState);
 
 }
