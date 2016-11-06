@@ -20,7 +20,7 @@
 /************************ Example Starts Here *******************************/
 
 // digital pin 5
-#define LED_PIN 5
+int ledPin = 5;
 
 // set up the 'digital' feed
 AdafruitIO_Feed *digital = io.feed("subscribeLED");
@@ -28,7 +28,7 @@ AdafruitIO_Feed *digital = io.feed("subscribeLED");
 void setup() {
 
   // set led pin as a digital output
-  pinMode(LED_PIN, OUTPUT);
+  pinMode(ledPin, OUTPUT);
 
   // start the serial connection
   Serial.begin(115200);
@@ -75,7 +75,7 @@ void handleMessage(AdafruitIO_Data *data) {
 
   Serial.print("Triggered");
 
-  digitalWrite(LED_PIN, HIGH);
+  digitalWrite(ledPin, HIGH);
   delay(10000);
-  digitalWrite(LED_PIN, LOW);
+  digitalWrite(ledPin, LOW);
 }
