@@ -20,7 +20,7 @@
 /************************ Example Starts Here *******************************/
 
 // set photocell pin
-int PHOTOCELL_PIN = A0;
+int photocellPin = A0;
 
 // photocell state
 int current = 0;
@@ -62,7 +62,7 @@ void loop() {
   io.run();
 
   // grab the current state of the photocell
-  current = analogRead(PHOTOCELL_PIN);
+  current = analogRead(photocellPin);
 
   // if the value has changed
   if(current != last){
