@@ -25,7 +25,7 @@ unsigned int filterBeta=10;
 ESP8266WebServer server(80);
 
 //hardware stuff:
-const unsigned int GPIOpin = D0;
+const unsigned int GPIOpin = LED_BUILTIN;
 bool GPIOstate=true; // True=on , false=off
 
 
