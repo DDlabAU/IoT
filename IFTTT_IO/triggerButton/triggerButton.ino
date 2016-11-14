@@ -38,7 +38,7 @@ void setup() {
   Serial.begin(115200);
 
   // wait for serial monitor to open
-  while (! Serial);
+  while (Serial == false);
 
   // connect to io.adafruit.com
   Serial.print("Connecting to Adafruit IO");
