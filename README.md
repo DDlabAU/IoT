@@ -11,6 +11,9 @@
       * Tools -> Board -> Boards Manager -> Søg på "esp8266" -> Installer den nyeste version af "esp8266 by ESP8266 Community"
   * Biblioteker
     * Sketch -> Include Library -> Manage Libraries... ->  Find og installér "Adafruit MQTT Library" og "Adafruit IO Arduino"
+  * Test at tingene virker ved at oploade en blink sketch til boardet
+    * Den kan i finde under File -> Examples -> 01. Basics -> Blink
+    * Husk at vælge det rigtige board: Tools -> Board: "Tilfældigt board" -> Adafruit HUZZAH ESP8266
 * Platforme
   * io.adafruit.com
     * Som normal bruger
