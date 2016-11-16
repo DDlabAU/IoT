@@ -33,5 +33,4 @@
   * Kombiner "receiveDigital" med en IFTTT applet
   * Kombiner "receiveAnalog" med en IFTTT applet
   * Kombiner "publishAnalog" med en IFTTT applet
-    * Husk spændingsdeler på den analoge indgang da den er begrænset til 1V
-      * Brug evt. dette link: http://www.ohmslawcalculator.com/voltage-divider-calculator
+    * Husk spændingsdeler på den analoge indgang da den maks kan klare 1V
