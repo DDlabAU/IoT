@@ -3,7 +3,7 @@
 * Installation
   * Driver:
     * Hent fra: http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx
-    * Genstart jeres computer
+    * Genstart jeres computer efter installation
   * Board:
     * Først skal arduino have et link, så den ved hvorfra den kan installere boardet:
       *  File -> Preferences -> Additional Boards Manager URLs: -> Indsæt her http://arduino.esp8266.com/stable/package_esp8266com_index.json -> Tryk OK
@@ -13,7 +13,7 @@
     * Sketch -> Include Library -> Manage Libraries... ->  Find og installér "Adafruit MQTT Library" og "Adafruit IO Arduino"
   * Test at tingene virker ved at oploade en blink sketch til boardet
     * Den kan i finde under File -> Examples -> 01. Basics -> Blink
-    * Husk at vælge det rigtige board: Tools -> Board: "Tilfældigt board" -> Adafruit HUZZAH ESP8266
+    * Husk at vælge det rigtige board: Tools -> Board -> Adafruit HUZZAH ESP8266
 * Platforme
   * io.adafruit.com
     * Som normal bruger
@@ -34,3 +34,8 @@
   * Kombiner "receiveAnalog" med en IFTTT applet
   * Kombiner "publishAnalog" med en IFTTT applet
     * Husk spændingsdeler på den analoge indgang da den maks kan klare 1V
+
+## Links
+Information om Feather HUZZAH boardet: https://learn.adafruit.com/adafruit-feather-huzzah-esp8266
+
+Mere om io.adafruit: https://learn.adafruit.com/adafruit-io/overview
