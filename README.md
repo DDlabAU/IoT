@@ -15,7 +15,7 @@
     * Den kan i finde under File -> Examples -> 01. Basics -> Blink
     * Husk at vælge det rigtige board: Tools -> Board -> Adafruit HUZZAH ESP8266
 * Platforme
-  *Blynk.com   
+  * Blynk.com   
   * io.adafruit.com
     * Som normal bruger
     * Derefter som beta-bruger af io-delen.
