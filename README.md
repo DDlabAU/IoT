@@ -15,12 +15,13 @@
     * Den kan i finde under File -> Examples -> 01. Basics -> Blink
     * Husk at vælge det rigtige board: Tools -> Board -> Adafruit HUZZAH ESP8266
 * Platforme
+  *Blynk.com   
   * io.adafruit.com
     * Som normal bruger
     * Derefter som beta-bruger af io-delen.
   * IFTTT
-  * Knyt de to brugere: io.adafruit.com -> Settings -> Connect to IFTTT.com
-  * Få hurtigt overblik over hvordan feeds fungerer. De fleste af tingene der gennemgåes vil vi gøre på vores egen måde, så læs for at få en generel forståelse for feeds: https://learn.adafruit.com/adafruit-io-basics-feeds/overview
+    * Knyt de to brugere: io.adafruit.com -> Settings -> Connect to IFTTT.com
+    * Få hurtigt overblik over hvordan feeds fungerer. De fleste af tingene der gennemgåes vil vi gøre på vores egen måde, så læs for at få en generel forståelse for feeds: https://learn.adafruit.com/adafruit-io-basics-feeds/overview
 * Kode
   * AdafruitIO (AIO) informationer:
     * IO_USERNAME: jeres brugernavn på adafruit.com
