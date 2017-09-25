@@ -14,6 +14,9 @@
   * Test at tingene virker ved at oploade en blink sketch til boardet
     * Den kan i finde under File -> Examples -> 01. Basics -> Blink
     * Husk at vælge det rigtige board: Tools -> Board -> Adafruit HUZZAH ESP8266
+  * Test at wifi forbindelsen virker ved at oploade en wifi-test sketch til boardet
+    * Følg guiden i linket nedenunder og husk at indsæt det rigtige login i koden 
+    * https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide
 * Platforme
   * Blynk.cc
     * Download app til smartphone
