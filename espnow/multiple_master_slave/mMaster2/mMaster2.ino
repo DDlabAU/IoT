@@ -4,7 +4,7 @@ extern "C" {
 }
 
 int ledStatus = true;
-uint8_t thisDevice = 1;
+uint8_t thisDevice = 5;
 uint32_t runTimes = 0;
 struct DATA_STRUCTURE {
   uint16_t finger1;
