@@ -13,6 +13,9 @@
 const char ssid[] = "ddlabwifi";
 const char pass[] = "balddbaldd";
 
+const char user[] = "";
+const char token[] = "";
+
 WiFiClient net;
 MQTTClient client;
 
@@ -42,7 +45,7 @@ void connect() {
   }
 
   Serial.print("\nconnecting...");
-  while (!client.connect("arduino","789a49e9","f95da16932147830")){
+  while (!client.connect("arduino", user, token)){
     Serial.print(".");
     delay(1000);
   }
@@ -61,12 +64,14 @@ void loop() {
     connect();
   }
 
-  // publish a message roughly every second.
-  if (millis() - lastMillis > 1000) {
-    lastMillis = millis();
-    client.publish("/counter", String(count));
-    count++;
-  }
+  publishMessage("/counter", String(count));
+  delay(500);
+  publishMessage("/hello", "world");
+  delay(500);
+}
+
+void publishMessage(String topic, String message){
+  client.publish(topic, message);
 }
 
 void messageReceived(String &topic, String &payload) {
