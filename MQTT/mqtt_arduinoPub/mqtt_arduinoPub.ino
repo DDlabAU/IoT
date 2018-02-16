@@ -10,8 +10,8 @@
 #include <ESP8266WiFi.h>
 #include <MQTTClient.h>
 
-const char ssid[] = "ddlabwifi";
-const char pass[] = "balddbaldd";
+const char ssid[] = "ddiot";
+const char pass[] = "ddlabiotworkshop";
 
 const char user[] = "";
 const char token[] = "";
