@@ -1,8 +1,8 @@
 // required when running on node.js
 // var mqtt = require('mqtt');
 
-var user = "javascripttest";
-var token = "0a5c2e61be56cb42";
+var user = "try";
+var token = "try";
 var client;
 
 function setup(){
@@ -20,6 +20,7 @@ function setup(){
       client.publish('message/receiced', 'too late to set the trap');
     }
   });
+  client.subscribe('/hello');
   client.subscribe('/+/mouse');
   // client.unsubscribe('/example');
 }
