@@ -19,15 +19,15 @@ For at kunne bruge et esp-board, er I nødt til at gøre følgende:
 Åben så Boards Manager ved at klikke ```Tools``` -> ```Board:...``` -> ```Boards Manager```. Søg på "esp" og installer pakken ved navn esp8266 by ESP8266 Community".
 
 ### 2: Installer drivere  
-Tjek først om der er brug for at installere en driver. Nyere versioner af styresystemet på macbooks skulle efter sigende ikke have brug for at installere drivere.
+Tjek først om der er brug for at installere en driver ved at følge instruktionerne nedenfor. Nyere versioner af styresystemet på macbooks skulle efter sigende ikke have brug for at installere drivere. Det kan også være at I i forbindelse med et andet projekt har installeret den nødvendige driver.
 
-Du finder ud af om det er nødvendigt således: Vælg først det korrekte board ```WeMos D1 R1``` under ```Tools``` -> ```Board:...```. Hvis der kommer en port frem under ```Tools``` -> ```Port``` når du tilslutter boardet har du ikke brug for at installere en driver. Hvis der ikke kommer en port frem, skal du følge trinnene nedenfor.
+Du finder ud af om det er nødvendigt således: Vælg først det korrekte board ```WeMos D1 R1``` under ```Tools``` -> ```Board:...```. Hvis der kommer en port frem under ```Tools``` -> ```Port``` når du tilslutter boardet, har du ikke brug for at installere en driver. Hvis der ikke kommer en port frem, skal du følge trinnene nedenfor.
 
 Download og installer driveren fra følgende link: [http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx](http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx)
-Husk at genstarte din computer inden du tester om det virker.
+**Husk at genstarte din computer inden du tester om det virker.**
 
 Hvis du bruger en macbook og ovenstående link ikke virker, så prøv dette link: [https://kig.re/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html#high-sierra](https://kig.re/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html#high-sierra)  
-Husk igen at genstarte inden du tester om det virker.
+**Husk igen at genstarte inden du tester om det virker.**
 
 
 
