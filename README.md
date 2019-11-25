@@ -49,3 +49,9 @@ Hvis du bruger en macbook og ovenstående link ikke virker, så prøv dette link
 ## Platforme
 
 Alle disse boards kan ved hjælp af esp-chippen forbinde til internettet (Sparkfun ESP32 Thing kan endda også forbinde til andre enheder gennem Bluetooth Low Energy). Med denne internetforbindelse har I mulighed for at forbinde arduinoen til andre esp-baserede arduino-boards, til web-services som for eksempel IFTTT (if this then that), trådløst til en p5js sketch og endda også benytte den som et lokalt hotspot som andre enheder kan forbinde til. Hvad I ønsker at forbinde til, vil afgøre hvilken platform der er smartest at benytte til at skabe denne forbindelse.
+
+### MQTT
+Hvis I vil bruge MQTT er det nødvendigt at installere et arduino-bibliotek. Der findes mange forskellige mqtt-bilioteker, men desværre virker de allesammen forskelligt. Hvis du I vil anvende de eksempler vi har lagt op, er det derfor vigtigt at I sørger for at installere det samme bibliotek som vi bruger: "MQTT" af "Joel Gaehwiler".
+
+Det installerer du således:
+Gå ind i ```Sketch``` -> ```Include Library``` -> ```Manage Libraries```, søg på "mqtt" og installer biblioteket ved navn "MQTT" af Joel Gaehwiler".
