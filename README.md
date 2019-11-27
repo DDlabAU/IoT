@@ -56,12 +56,12 @@ Hvis I vil bruge MQTT er det nødvendigt at installere et arduino-bibliotek. Der
 Det installerer I således:
 Gå ind i ```Sketch``` -> ```Include Library``` -> ```Manage Libraries```, søg på "mqtt" og installer biblioteket ved navn "MQTT" af Joel Gaehwiler".
 
-### IFTT
-IfThisThenThat er en platform, der agerer som mellemmand mellem et væld af etablerede platforme, som f.eks. facebook, gmail, vejrtjenester og gps-data fra jeres telefoner.
+### IFTTT: If This Then That
+[If This Then That](https://ifttt.com/) er en platform, der agerer som mellemmand mellem et væld af etablerede platforme, som f.eks. facebook, gmail, vejrtjenester og gps-data fra jeres telefoner.
 I kan se eksempler på, hvordan man forbinder til IFTTT i mappen "IFTTT".  
 
 ### Webserver
 Man kan også bruge sit board som en simpel webserver, som man enten forbinder til via et fælles trådløst netværk eller via et lokalt trådløst netværk som boardet selv hoster.
-Det kan man for eksempel bruge til at forbinde til esp-boardet, man bruger i sit design, og lave ændringer i dets opførsel fra et interface i browseren, uden at skulle til at lave ændringer i selve koden på boardet. 
+Det kan man for eksempel bruge til at forbinde til esp-boardet, man bruger i sit design, og lave ændringer i dets opførsel fra et interface i browseren, uden at skulle til at lave ændringer i selve koden på boardet.
 Man kan også bruge det lokale netværk til et servere hjemmesider, der ligger på boardet, til alle de enheder der forbinder til netværket.  
 Se eksempler på hvordan man bruger boardet som webser i mappen "webserver".
