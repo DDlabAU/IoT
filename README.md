@@ -58,7 +58,7 @@ Gå ind i ```Sketch``` -> ```Include Library``` -> ```Manage Libraries```, søg 
 
 ### IFTTT: If This Then That
 [If This Then That](https://ifttt.com/) er en platform, der agerer som mellemmand mellem et væld af etablerede platforme, som f.eks. facebook, gmail, vejrtjenester og gps-data fra jeres telefoner.
-I kan se eksempler på, hvordan man forbinder til IFTTT i mappen "IFTTT".  
+I kan se eksempler på, hvordan man forbinder til IFTTT i mappen "ifttt".  
 
 ### Webserver
 Man kan også bruge sit board som en simpel webserver, som man enten forbinder til via et fælles trådløst netværk eller via et lokalt trådløst netværk som boardet selv hoster.
