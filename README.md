@@ -28,7 +28,7 @@ Tjek først om der er brug for at installere en driver ved at følge instruktion
 
 Du finder ud af om det er nødvendigt således: Vælg først det korrekte board ```WeMos D1 R1``` under ```Tools``` -> ```Board:...```. Hvis der kommer en port frem under ```Tools``` -> ```Port``` når du tilslutter boardet, har du ikke brug for at installere en driver. Hvis der ikke kommer en port frem, skal du følge trinnene nedenfor.
 
-Download og installer driveren fra følgende link: [http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx](http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx)
+Download og installer driveren fra følgende link: [http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx](http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx)  
 **Husk at genstarte din computer inden du tester om det virker.**
 
 Hvis du bruger en macbook og ovenstående link ikke virker, så prøv dette link: [https://kig.re/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html#high-sierra](https://kig.re/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html#high-sierra)  
@@ -55,6 +55,9 @@ Hvis I vil bruge MQTT er det nødvendigt at installere et arduino-bibliotek. Der
 
 Det installerer I således:
 Gå ind i ```Sketch``` -> ```Include Library``` -> ```Manage Libraries```, søg på "mqtt" og installer biblioteket ved navn "MQTT" af Joel Gaehwiler".
+
+![billede af korrekt mqtt bibliotek](./assets/mqtt-bibliotek.png "Det korrekte mqtt bibliotek")
+
 
 ### IFTTT: If This Then That
 [If This Then That](https://ifttt.com/) er en platform, der agerer som mellemmand mellem et væld af etablerede platforme, som f.eks. facebook, gmail, vejrtjenester og gps-data fra jeres telefoner.
