@@ -1,9 +1,6 @@
 # MQTT
-MQTT er en letvægts kommunikationsprotokol der kan sende information via WiFi ved hjælp af en broker og en eller flere clients.
+Alle eksemplerne i denne mappe er testet på [shiftr.io](shiftr.io).
 
-Afholdt workshop om MQTT, connected devices og esp8266 fredag d. 16/2-18.
-Slides kan findes [her](https://goo.gl/rQcnx2)
+I skal selv oprette tokens (key og secret) til at forbinde til jeres namespace. Hvis I bare vil afprøve, kan I anvende "try" som både key og secret, for at forbinde til [shiftrs test-namespace](https://shiftr.io/try).
 
-HiveMQ har en god gennemgang af MQTTs muligheder og essentielle funktioner på deres hjemmeside [www.hivemq.com](https://www.hivemq.com/blog/mqtt-essentials/page/2/)
-
-For mere information, henvend dig, jer venligst til en ansat i lab'et :) 
+For at bruge arduino-eksemplerne, skal I indtaste et netværksnavn og en kode, til et tilgængeligt trådløst netværk. Eduroam virker ikke. I kan evt. oprette et hotspot på jeres telefon.

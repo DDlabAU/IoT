@@ -50,6 +50,9 @@ Hvis I er interesserede i at installere og styre jeres egen broker kan I tage et
 En nemmere måde hurtigt at komme igang med mqtt er med en online broker. Her har vi med stor succes benyttet os af [brokeren Shiftr.io](https://shiftr.io/), som vi også benytter i vores mqtt eksempler.
 Uanset hvilken af de to I vælger, skal I først installere et arduino-bibliotek.
 
+Hvis I er interessede i at læse mere om mqtts essentielle funktioner og mere tekniske aspekter af protokollen, er der en [god gennemgang på HiveMQs (udviklere af en tredje broker) hjemmeside](https://www.hivemq.com/mqtt-essentials/).  
+
+
 #### Installation
 Hvis I vil bruge MQTT er det nødvendigt at installere et arduino-bibliotek. Der findes mange forskellige mqtt-bilioteker, men desværre virker de allesammen forskelligt. Hvis du I vil anvende de eksempler vi har lagt op, er det derfor vigtigt at I sørger for at installere det samme bibliotek som vi bruger: "MQTT" af "Joel Gaehwiler".
 
