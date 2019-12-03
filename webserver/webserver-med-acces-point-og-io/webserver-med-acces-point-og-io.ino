@@ -21,7 +21,7 @@ void handleNotFound();
 
 //WIFI SETTINGS:
 const char* ssid = "featherAP";
-const char* key  = "OMGWTFDDLABFTW"; //hvis der skal være kode på...
+const char* key  = ""; //hvis der skal være kode på...
 
 //Batt:
 static unsigned battPin=A0;
@@ -49,7 +49,7 @@ void setup() {
   //start access point...
   //Argumenterne er: (NetværksNavn , KODE , kanal)  
   //hvis koden er en tom streng: "" startes netværket uden kode.
-  WiFi.softAP(ssid, ""/*key*/,10); 
+  WiFi.softAP(ssid, key,10); 
 
   // if DNSServer is started with "*" for domain name, 
   // it will reply with the provided IP to all DNS requests

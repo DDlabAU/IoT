@@ -11,8 +11,8 @@ void handleToggle();
 void handleNotFound();
 
 //WIFI SETTINGS:
-const char* ssid = "test";
-const char* key  = "wifitestcode";
+const char* ssid = "wifi-navn";
+const char* key  = "wifi-kode";
 
 //Batt:
 static unsigned battPin=A0;
