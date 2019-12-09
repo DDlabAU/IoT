@@ -25,7 +25,7 @@
     * Derefter som beta-bruger af io-delen.
   * IFTTT
     * Knyt de to brugere: io.adafruit.com -> Settings -> Connect to IFTTT.com
-    * Få hurtigt overblik over hvordan feeds fungerer. De fleste af tingene der gennemgåes vil vi gøre på vores egen måde, så læs for at få en generel forståelse for feeds: https://learn.adafruit.com/adafruit-io-basics-feeds/overview
+    * Få hurtigt overblik over hvordan feeds fungerer. De fleste af tingene der gennemgås gøres på vores egen måde, for at få en mere generel forståelse for feeds, læs denne: https://learn.adafruit.com/adafruit-io-basics-feeds/overview
 * Kode
   * AdafruitIO (AIO) informationer:
     * IO_USERNAME: jeres brugernavn på adafruit.com
