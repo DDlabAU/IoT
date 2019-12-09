@@ -40,7 +40,7 @@ Som sagt kan alle lab'ets esp-boards forbinde til internettet via trådløse net
 *  forbinde arduinoen til andre esp-baserede arduino-boards
 * forbinde (op til flere boards) trådløst til en p5js sketch, både som inputs og outputs
 * forbinde til web-services som for eksempel IFTTT (if this then that), der så kan koble jeres projekt med eksisterende digitale platforme og services
-* bruge esp-boardet til at lave et wifi-hotspot, der kan servere hjemmesider til telefoner og computere der forbinder til det
+* bruge esp-boardet til at lave et wifi-hotspot, der kan fungere som server for hjemmesider til telefoner og computere der forbinder til det
 
 ### Forbind boards til hinanden eller P5js: MQTT
 Der findes mange platforme, der muliggør en forbindelse mellem boards og p5js. I lab'et anbefaler vi MQTT, som vi også bruger til vores workshops, da det både er letvægt, skalerbart og forholdsvist simpelt.
